@@ -4,9 +4,30 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import Vue from "vue";
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+import VueRouter from 'vue-router'
+import Teacher from "./components/Teacher";
+import Kit from "./components/Kit";
+Vue.use(VueRouter)
+const routes = [
+    {
+        name: 'teacher',
+        path: 'teacher',
+        component: Teacher
+    },
+    {
+        name: 'kit',
+        path: 'kit',
+        component: Kit
+    },
+
+]
+let router = new VueRouter({mode: 'history', routes });
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,6 +41,11 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('teacher-component', require('./components/Teacher.vue').default);
+Vue.component('kit-component', require('./components/Kit.vue').default);
+
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +55,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });

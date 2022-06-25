@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/teacher', [App\Http\Controllers\TeacherController::class, 'index'])->name('teacher');
+Route::get('/kit', [App\Http\Controllers\KitController::class, 'index'])->name('kit');
